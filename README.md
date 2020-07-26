@@ -1,0 +1,2 @@
+# nihil
+Golang analysis pipeline
