@@ -100,13 +100,8 @@ message Series {
 }
 
 message Axis {
-	enum Direction {
-		VERTICAL = 0;
-		HORIZONTAL = 1;
-	}
 	repeated Series series = 1;
-	Direction direction = 2;
-	string name = 3;
+	string name = 2;
 }
 
 message Space {
