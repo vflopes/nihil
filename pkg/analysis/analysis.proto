@@ -47,6 +47,17 @@ message ArithmeticOperationsParameters {
 	double value = 3;
 }
 
+message BollingerBandsParameters {
+	// The mean and standard deviation series must have the same length
+	string mean_name = 1;
+	string standard_deviation_name = 2;
+	// The number that will multiply the standard deviation to form the maximum (high) and minimum (low) values of the candlestick
+	// Financial market:
+	// 2.1 for long term
+	// 1.9 for short term
+	double factor = 3;
+}
+
 message AnalysisParameters {
 	enum ValueGetter {
 		ABSOLUTE_VALUE = 0;
@@ -60,6 +71,7 @@ message AnalysisParameters {
 		FinancialReturnParameters financial_return_parameters = 2;
 		StandardDeviationParameters standard_deviation_parameters = 3;
 		ArithmeticOperationsParameters arithmetic_operations_parameters = 5;
+		BollingerBandsParameters bollinger_bands_parameters = 6;
 	}
 	ValueGetter value_from = 4;
 }

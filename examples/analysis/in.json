@@ -35,6 +35,14 @@
 							"operation": 0,
 							"value": 252
 						}
+					},
+					{
+						"value_from": 0,
+						"bollinger_bands_parameters": {
+							"mean_name": "moving_average",
+							"standard_deviation_name": "standard_deviation",
+							"factor": 1.9
+						}
 					}
 				],
 				"source": {

@@ -14,6 +14,14 @@ func Do(ctx context.Context, parameters *analysis.AnalysisParameters, axis *anal
 	valueGetter := parameters.ValueFrom.GetValueGetter()
 
 	switch params := parameters.Parameters.(type) {
+	case *analysis.AnalysisParameters_BollingerBandsParameters:
+		bolbands := indicators.NewBollingerBands().WithValueGetter(valueGetter)
+		mean := axis.FindSeriesByName(params.BollingerBandsParameters.MeanName)
+		stddev := axis.FindSeriesByName(params.BollingerBandsParameters.StandardDeviationName)
+		dst := bolbands.Do(ctx, params.BollingerBandsParameters, mean.ToThreadSafe(), stddev.ToThreadSafe())
+		return &analysis.Axis{
+			Series: []*analysis.Series{dst.Series},
+		}
 	case *analysis.AnalysisParameters_ArithmeticOperationsParameters:
 		arithm := operations.NewArithmetic().WithValueGetter(valueGetter)
 		src := axis.FindSeriesByName(params.ArithmeticOperationsParameters.SourceName)
