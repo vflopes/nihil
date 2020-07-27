@@ -1,0 +1,220 @@
+{
+	"series": [
+		{
+			"dataPoints": [
+				{
+					"absoluteValue": 10
+				},
+				{
+					"timestamp": "1",
+					"absoluteValue": 8
+				},
+				{
+					"timestamp": "2",
+					"absoluteValue": 7.5
+				},
+				{
+					"timestamp": "3",
+					"absoluteValue": 7.8
+				},
+				{
+					"timestamp": "4",
+					"absoluteValue": 9
+				},
+				{
+					"timestamp": "5",
+					"absoluteValue": 10
+				},
+				{
+					"timestamp": "6",
+					"absoluteValue": 11
+				},
+				{
+					"timestamp": "7",
+					"absoluteValue": 11.25
+				},
+				{
+					"timestamp": "8",
+					"absoluteValue": 11.3
+				},
+				{
+					"timestamp": "9",
+					"absoluteValue": 11.24
+				}
+			],
+			"name": "company_stocks"
+		},
+		{
+			"dataPoints": [
+				{},
+				{
+					"timestamp": "1",
+					"absoluteValue": -0.2231435513142097
+				},
+				{
+					"timestamp": "2",
+					"absoluteValue": -0.06453852113757118
+				},
+				{
+					"timestamp": "3",
+					"absoluteValue": 0.03922071315328133
+				},
+				{
+					"timestamp": "4",
+					"absoluteValue": 0.14310084364067344
+				},
+				{
+					"timestamp": "5",
+					"absoluteValue": 0.10536051565782635
+				},
+				{
+					"timestamp": "6",
+					"absoluteValue": 0.09531017980432493
+				},
+				{
+					"timestamp": "7",
+					"absoluteValue": 0.022472855852058576
+				},
+				{
+					"timestamp": "8",
+					"absoluteValue": 0.004434597067865775
+				},
+				{
+					"timestamp": "9",
+					"absoluteValue": -0.005323881252749966
+				}
+			],
+			"name": "financial_return",
+			"unit": "RATIO"
+		},
+		{
+			"dataPoints": [
+				{},
+				{
+					"timestamp": "1",
+					"absoluteValue": -0.11157177565710485
+				},
+				{
+					"timestamp": "2",
+					"absoluteValue": -0.09589402415059363
+				},
+				{
+					"timestamp": "3",
+					"absoluteValue": -0.08282045309949986
+				},
+				{
+					"timestamp": "4",
+					"absoluteValue": 0.03926101188546119
+				},
+				{
+					"timestamp": "5",
+					"absoluteValue": 0.09589402415059368
+				},
+				{
+					"timestamp": "6",
+					"absoluteValue": 0.11459051303427488
+				},
+				{
+					"timestamp": "7",
+					"absoluteValue": 0.07438118377140326
+				},
+				{
+					"timestamp": "8",
+					"absoluteValue": 0.04073921090808307
+				},
+				{
+					"timestamp": "9",
+					"absoluteValue": 0.007194523889058107
+				}
+			],
+			"name": "moving_average",
+			"unit": "RATIO"
+		},
+		{
+			"dataPoints": [
+				{},
+				{
+					"timestamp": "1",
+					"absoluteValue": 0.15778631831232603
+				},
+				{
+					"timestamp": "2",
+					"absoluteValue": 0.11482872811356522
+				},
+				{
+					"timestamp": "3",
+					"absoluteValue": 0.13213411215347587
+				},
+				{
+					"timestamp": "4",
+					"absoluteValue": 0.10381968825501786
+				},
+				{
+					"timestamp": "5",
+					"absoluteValue": 0.05258308876066319
+				},
+				{
+					"timestamp": "6",
+					"absoluteValue": 0.025196855481520952
+				},
+				{
+					"timestamp": "7",
+					"absoluteValue": 0.04523392745748163
+				},
+				{
+					"timestamp": "8",
+					"absoluteValue": 0.048112760050711315
+				},
+				{
+					"timestamp": "9",
+					"absoluteValue": 0.014102395025746964
+				}
+			],
+			"name": "standard_deviation",
+			"unit": "RATIO"
+		},
+		{
+			"dataPoints": [
+				{},
+				{
+					"timestamp": "1",
+					"absoluteValue": 2.5047801512573487
+				},
+				{
+					"timestamp": "2",
+					"absoluteValue": 1.8228495477260676
+				},
+				{
+					"timestamp": "3",
+					"absoluteValue": 2.0975640027984865
+				},
+				{
+					"timestamp": "4",
+					"absoluteValue": 1.6480864578901835
+				},
+				{
+					"timestamp": "5",
+					"absoluteValue": 0.8347306561701023
+				},
+				{
+					"timestamp": "6",
+					"absoluteValue": 0.39998768054963446
+				},
+				{
+					"timestamp": "7",
+					"absoluteValue": 0.7180663372513957
+				},
+				{
+					"timestamp": "8",
+					"absoluteValue": 0.7637663878986332
+				},
+				{
+					"timestamp": "9",
+					"absoluteValue": 0.22386858077112476
+				}
+			],
+			"name": "historical_volatility",
+			"unit": "RATIO"
+		}
+	]
+}

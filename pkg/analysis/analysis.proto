@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+option go_package = "github.com/vflopes/nihil/pkg/analysis";
+
+package nihil.analysis;
+
+message StandardDeviationParameters {
+	string source_name = 1;
+	string mean_name = 2;
+	// How many periods to aggregate
+	int64 periods = 3;
+}
+
+message MovingAverageParameters {
+	string source_name = 1;
+	enum Mode {
+		SIMPLE = 0;
+	}
+	// How many periods to aggregate
+	int64 periods = 2;
+	// The granularity, or, how many datapoints the moving average will track
+	// 1 will generate 1 to 1 with source series
+	// Must be > 1
+	int64 granularity = 3;
+	Mode mode = 4;
+}
+
+message FinancialReturnParameters {
+	string source_name = 1;
+	enum Function {
+		RATIO = 0;
+		NATURAL_LOGARITHM = 1;
+	}
+	// How many backwards periods to compare the current value
+	// The current value is indexed at 1, so you must specifcy values > 1
+	int64 periods = 2;
+	// Which function to use to calculate the return
+	Function function = 3;
+}
+
+message ArithmeticOperationsParameters {
+	string source_name = 1;
+	enum Operation {
+		TIMES_SQRT = 0;
+	}
+	Operation operation = 2;
+	double value = 3;
+}
+
+message AnalysisParameters {
+	enum ValueGetter {
+		ABSOLUTE_VALUE = 0;
+		CANDLESTICK_HIGH = 1;
+		CANDLESTICK_OPEN = 2;
+		CANDLESTICK_CLOSE = 3;
+		CANDLESTICK_LOW = 4;
+	}
+	oneof parameters {
+		MovingAverageParameters moving_average_parameters = 1;
+		FinancialReturnParameters financial_return_parameters = 2;
+		StandardDeviationParameters standard_deviation_parameters = 3;
+		ArithmeticOperationsParameters arithmetic_operations_parameters = 5;
+	}
+	ValueGetter value_from = 4;
+}
+
+message Candlestick {
+	double high = 1;
+	double open = 2;
+	double close = 3;
+	double low = 4;
+}
+
+message DataPoint {
+	int64 timestamp = 1;
+	double absolute_value = 2;
+	Candlestick candlestick = 3;
+}
+
+message Series {
+	enum Unit {
+		UNDEFINED = 0;
+		RATIO = 1;
+	}
+	repeated DataPoint data_points = 1;
+	string name = 2;
+	Unit unit = 3;
+}
+
+message Axis {
+	enum Direction {
+		VERTICAL = 0;
+		HORIZONTAL = 1;
+	}
+	repeated Series series = 1;
+	Direction direction = 2;
+	string name = 3;
+}
+
+message Space {
+	repeated Axis axis = 1;
+	int64 resolution_seconds = 2;
+}
+
+message AxisPipeline {
+	repeated AnalysisParameters parameters_sequence = 1;
+	Axis source = 2;
+}
+
+message Pipeline {
+	message Step {
+		AxisPipeline axis_pipeline = 2;
+		map<string, string> rename = 3;
+	}
+	repeated Step steps = 1;
+}
+
+
+service AnalysisService {
+	rpc Do(Pipeline) returns(Axis) {}
+}

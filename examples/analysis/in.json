@@ -1,0 +1,96 @@
+{
+	"steps": [
+		{
+			"axis_pipeline": {
+				"parameters_sequence": [
+					{
+						"value_from": 0,
+						"financial_return_parameters": {
+							"source_name": "company_stocks",
+							"periods": 1,
+							"function": 1
+						}
+					},
+					{
+						"value_from": 0,
+						"moving_average_parameters": {
+							"source_name": "financial_return",
+							"periods": 3,
+							"granularity": 1,
+							"mode": 0
+						}
+					},
+					{
+						"value_from": 0,
+						"standard_deviation_parameters": {
+							"source_name": "financial_return",
+							"mean_name": "moving_average",
+							"periods": 3
+						}
+					},
+					{
+						"value_from": 0,
+						"arithmetic_operations_parameters": {
+							"source_name": "standard_deviation",
+							"operation": 0,
+							"value": 252
+						}
+					}
+				],
+				"source": {
+					"series": [
+						{
+							"name": "company_stocks",
+							"unit": 0,
+							"data_points": [
+								{
+									"timestamp": 0,
+									"absolute_value": 10
+								},
+								{
+									"timestamp": 1,
+									"absolute_value": 8
+								},
+								{
+									"timestamp": 2,
+									"absolute_value": 7.5
+								},
+								{
+									"timestamp": 3,
+									"absolute_value": 7.8
+								},
+								{
+									"timestamp": 4,
+									"absolute_value": 9
+								},
+								{
+									"timestamp": 5,
+									"absolute_value": 10
+								},
+								{
+									"timestamp": 6,
+									"absolute_value": 11
+								},
+								{
+									"timestamp": 7,
+									"absolute_value": 11.25
+								},
+								{
+									"timestamp": 8,
+									"absolute_value": 11.3
+								},
+								{
+									"timestamp": 9,
+									"absolute_value": 11.24
+								}
+							]
+						}
+					]
+				}
+			},
+			"rename": {
+				"arithmetic_operation": "historical_volatility"
+			}
+		}
+	]
+}
