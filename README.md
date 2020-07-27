@@ -45,7 +45,7 @@ Well, nihil data points can be represented in two ways (all values are `float64`
 
 ## Components
 
-nihil have several components, each one responsible for doing just one thing. The overall focus is to provide high performance and scalability on UNIX-like operating systems.
+nihil has several components, each one responsible for doing just one thing. The overall focus is to provide high performance and scalability on UNIX-like operating systems.
 
 ### Analytics
 
